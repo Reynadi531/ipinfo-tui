@@ -43,7 +43,7 @@ func CallAPI(ip string) (IPInfoResponse, error) {
 	defer res.Body.Close()
 
 	if res.StatusCode != http.StatusOK {
-		return response, fmt.Errorf("status code error: %d %s", res.StatusCode, res.Status)
+		return response, fmt.Errorf("status : %s", res.Status)
 	}
 
 	if err := json.NewDecoder(res.Body).Decode(&response); err != nil {
